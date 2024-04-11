@@ -1,0 +1,14 @@
+rich
+glob2
+tqdm
+torch
+torchaudio
+torchvision
+numpy
+scipy
+pyyaml
+transformers
+tensorboard
+matplotlib
+scikit-learn
+h5py
