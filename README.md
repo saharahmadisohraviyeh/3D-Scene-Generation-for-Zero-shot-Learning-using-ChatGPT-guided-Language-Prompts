@@ -5,12 +5,12 @@ Supported backbones:
 - [x] [PointNet (CVPR'2017)](https://github.com/charlesq34/pointnet)
 - [x] [PointConv (CVPR'2019)](https://github.com/DylanWusee/pointconv)
 - [x] [EdgeConv (ACM'2019)](https://github.com/WangYueFt/dgcnn)
-- [ ] [PointAugment (CVPR'2020)](https://github.com/liruihui/PointAugment)
+
 
 Supported Datasets:
 - [x] [ModelNet40](https://modelnet.cs.princeton.edu/)
 - [X] [ScanObjectNN](https://hkust-vgd.github.io/scanobjectnn/)
-- [ ] [McGill](http://www.cim.mcgill.ca/~shape/benchMark/)
+- [X] [SahpeNet](https://shapenet.org/)
 
 
 
@@ -29,6 +29,7 @@ Tasks:
    - [x] A small [ObjectA](blue) is close to [ObjectB](blue).
    - [x] [ObjectA](blue) is on [ObjectB](blue).
    - [x] [ObjectA](blue) is under [ObjectB](blue).
+- [x] Add ChatGPT Augmentations for each Prompts
 - [x] Embedding Visualization
 - [x] Hyperparameter Tunning
 - [ ] Add Supervised Contrastive Loss
@@ -54,6 +55,8 @@ Classification
 Inductive ZSL
 ```python
    python train_inductive.py --config_path ./configs/pointnet/pointnet_modelnet40.yaml --dataset_eval ModelNet10 --backbone PointNet --alpha_sceneaug 0.9 --verbose --pbar
+
+
 ```
 ```python
    python train_inductive.py --config_path ./configs/pointnet/pointnet_scanobjectnn.yaml --dataset_eval ScanObjectNN --backbone PointNet --alpha_sceneaug 0.9 --verbose --pbar
@@ -64,5 +67,9 @@ Tune Inductive ZSL Models
    python tunning_inductive.py --config_path ./configs/pointnet/pointnet_modelnet40.yaml --dataset_eval ModelNet10 --backbone PointNet --alpha_sceneaug 0.9 --verbose --pbar
 ```
 ```python
-   python tunning_inductive.py --config_path ./configs/pointnet/pointnet_scanobjectnn.yaml --dataset_eval ScanObjectNN --backbone PointNet --alpha_sceneaug 0.9 --verbose --pbar
+   python train_inductive.py --config_path ./configs/pointnet/pointnet_shapnet44.yaml --dataset_train Shapnet44  --dataset_eval ScanObject15 --backbone PointNet --alpha_sceneaug 0.9  --pbar --bs 64
 ```
+```python
+   python tunning_inductive.py --config_path ./configs/pointnet/pointnet_scanobjectnn.yaml --dataset_eval ScanObjectNN --backbone PointNet --alpha_sceneaug 0.9  --pbar --bs 64
+```
+
